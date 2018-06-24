@@ -1,6 +1,5 @@
 var roleFarm = require('roleFarm');
 
-
 //respawn unité
 var cptNinja = _.filter(Game.creeps,(monCreep)=>monCreep.memory.role=='farm');
 if(cptNinja.length<2)
