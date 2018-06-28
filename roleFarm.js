@@ -10,15 +10,13 @@ module.exports = {
         }
         else
         {
-            if(monCreep.transfer(Game.spawns['Konoha'],RESOURCE_ENERGY)==ERR_NOT_IN_RANGE)
+            let source = monCreep.room.find(FIND_STRUCTURES,{filter : (structure)=>{return (structure.structureType==STRUCTURE_EXTENSION || structure.structureType==STRUCTURE_SPAWN || structure.structureType==STRUCTURE_TOWER)&& structure.energy<structure.energyCapacity}});
+            if(source.length>0)
             {
-                monCreep.moveTo(Game.spawns['Konoha']);
+                if(monCreep.transfer(source[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                    monCreep.moveTo(source[0], {visualizePathStyle: {stroke: '#fff'}});
+                }
             }
-        }
-        if(monCreep.ticksToLive<50)
-        {
-            monCreep.moveTo(Game.spawns['Konoha']);
-            Game.spawns['Konoha'].renewCreep(monCreep);
         }
     }
 };
