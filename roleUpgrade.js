@@ -27,7 +27,7 @@ module.exports = {
         }
         else
         {
-            let source = monCreep.room.findClosestByRange(FIND_SOURCES);
+            let source = monCreep.pos.findClosestByRange(FIND_SOURCES);
             if(monCreep.harvest(source)==ERR_NOT_IN_RANGE)
             {
                 monCreep.moveTo(source,{visualizePathStyle: {stroke : '#ff871e'}});
