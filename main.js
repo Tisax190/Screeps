@@ -1,5 +1,7 @@
 var roleFarm = require('roleFarm');
 var roleUpgrade = require('roleUpgrade');
+var roleBuilder = require('roleBuilder');
+var buildExtension = require('buildExtension');
 
 //respawn unité
 var cptNinja = _.filter(Game.creeps,(monCreep)=>monCreep.memory.role=='farm');
@@ -37,6 +39,7 @@ for(let i in Game.creeps)
     if(monCreep.memory.role=='upg')
     roleUpgrade.run(monCreep);
     if(monCreep.memory.role=='build')
-    roleUpgrade.run(monCreep);
+    {buildExtension.buildExtension(monCreep);
+    roleBuilder.run(monCreep);}
 }
 
