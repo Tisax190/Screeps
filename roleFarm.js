@@ -2,7 +2,7 @@ module.exports = {
     run: function(monCreep){
         if(monCreep.carryCapacity>monCreep.carry.energy)
         {
-            var resource = monCreep.pos.findClosestByRange(FIND_SOURCES);
+            let resource = monCreep.pos.findClosestByRange(FIND_SOURCES);
             if(monCreep.harvest(resource)==ERR_NOT_IN_RANGE)
             {
                 monCreep.moveTo(resource,{visualizePathStyle: {stroke: '#fff'}});
